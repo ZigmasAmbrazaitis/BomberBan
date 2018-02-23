@@ -32,7 +32,9 @@ public class Controller extends JFrame {
 
     public Pane mapContainer;
 
-    // drawMap vienas veikia. Run vienas paleidzia ne ta app kuri reikia
+    /**
+     * Initialize isijungia tik sugeneravus @FXML
+     * */
     @FXML
     public void initialize() {
         model = new Model();
@@ -41,12 +43,18 @@ public class Controller extends JFrame {
         run();
     }
 
+    /**
+     * Kuria playerius model klasej, modelis is PlayerVO
+     * */
     private void createPlayers() {
         for (int i = 0; i < model.players.size(); i++) {
             mapContainer.getChildren().add(model.players.get(i).sprite);
         }
     }
 
+    /**
+     * Drawina map'a is int[][] MAP
+     * */
     private void drawMap() {
         getData();
         for (int i = 0; i < map.length; i++) {
@@ -80,6 +88,9 @@ public class Controller extends JFrame {
         }
     }
 
+    /**
+     * KeyListener
+     * */
     public class AL extends KeyAdapter {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
@@ -105,6 +116,9 @@ public class Controller extends JFrame {
         }
     }
 
+    /**
+     * ??
+     * */
     public void doTimer() {
 //        long time = System.currentTimeMillis();
         update();
@@ -115,6 +129,9 @@ public class Controller extends JFrame {
         }
     }
 
+    /**
+     * lots of shit stuff inside.
+     * */
     private void run() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         addKeyListener(new AL());
@@ -134,15 +151,16 @@ public class Controller extends JFrame {
         // setVisible(false);
     }
 
+    /**
+     * lygtais naudojamas checkint Win condition'am ar panasiai, turi but imestas i RUN loop'a
+     * */
     void update() {
 
     }
 
-    void draw() {
-
-    }
-
-
+    /**
+     * is map.txt suraso i int[][] MAP
+     * */
     private void getData() {
         Scanner scanner = null;
         try {
@@ -161,6 +179,9 @@ public class Controller extends JFrame {
         }
     }
 
+    /**
+     * just to check if getData works
+     * */
     private void showData(int[][] a) {
         final int rows = a.length;
         final int cols = a[0].length;

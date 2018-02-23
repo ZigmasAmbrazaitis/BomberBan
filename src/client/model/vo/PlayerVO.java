@@ -14,6 +14,9 @@ public class PlayerVO {
 
     public ImageView sprite;
 
+    /**
+     * create player and put in on the screen
+     * */
     public PlayerVO(){
         X = Math.random()*500;
         Y = Math.random()*500;

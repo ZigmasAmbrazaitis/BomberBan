@@ -14,6 +14,9 @@ public class Model {
 
     public ArrayList<PlayerVO> players;
 
+    /**
+     * Kuria players arraylist. ima is PlayerVO
+     * */
     public Model(){
         players = new ArrayList<PlayerVO>();
         for (int i = 0; i<5; i++){ //vietoje 5 turi atsiusti i serva uzklausima kad sukurti nauja playeri
