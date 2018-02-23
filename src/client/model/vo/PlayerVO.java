@@ -8,7 +8,7 @@ import java.io.File;
 
 public class PlayerVO {
 
-    boolean isMe = true;
+    boolean isMe = false;
     public double X = 200;
     public double Y = 200;
 
@@ -18,6 +18,7 @@ public class PlayerVO {
      * create player and put in on the screen
      * */
     public PlayerVO(){
+        isMe = true;
         X = Math.random()*500;
         Y = Math.random()*500;
         sprite = new ImageView();

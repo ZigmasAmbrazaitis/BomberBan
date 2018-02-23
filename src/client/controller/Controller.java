@@ -1,6 +1,7 @@
 package client.controller;
 
 import client.model.Model;
+import client.model.vo.BombVO;
 import client.model.vo.PlayerVO;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -27,8 +28,8 @@ public class Controller extends JFrame {
 
     private static final int windowWidth = 1280;
     private static final int windowHeight = 720;
-    private int positionX = windowHeight / 2;
-    private int positionY = windowWidth / 2;
+    private int positionX = windowWidth / 2;
+    private int positionY = windowHeight / 2;
 
     public Pane mapContainer;
 
@@ -49,6 +50,12 @@ public class Controller extends JFrame {
     private void createPlayers() {
         for (int i = 0; i < model.players.size(); i++) {
             mapContainer.getChildren().add(model.players.get(i).sprite);
+        }
+    }
+
+    private void createBombs() {
+        for (int i = 0; i < model.bombs.size(); i++) {
+            mapContainer.getChildren().add(model.bombs.get(i).sprite);
         }
     }
 
@@ -95,16 +102,19 @@ public class Controller extends JFrame {
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_DOWN:
-                    positionY += 20;
+                    model.players.get(0).Y += 20;
                     break;
                 case KeyEvent.VK_UP:
-                    positionY -= 20;
+                    model.players.get(0).Y -= 20;
                     break;
                 case KeyEvent.VK_LEFT:
-                    positionX -= 20;
+                    model.players.get(0).X -= 20;
                     break;
                 case KeyEvent.VK_RIGHT:
-                    positionX += 20;
+                    model.players.get(0).X += 20;
+                    break;
+                case KeyEvent.VK_SPACE:
+                    createBombs();
                     break;
             }
         }
@@ -138,7 +148,7 @@ public class Controller extends JFrame {
         //showData(map);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        setVisible(true);
+      //  setVisible(true);
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
 
