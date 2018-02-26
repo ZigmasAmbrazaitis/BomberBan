@@ -6,11 +6,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
-import java.util.ArrayList;
 
 public class BombVO {
 
-    public Model model;
+//    Model model = new Model();
+
     public double X = 200;
     public double Y = 200;
 
@@ -20,11 +20,10 @@ public class BombVO {
      * create bomb and put it on the screen
      */
     public BombVO() {
-//        X = model.players.get(0).X;
-        X = 400;
-//        Y = model.players.get(0).Y;
-        Y = 400;
+     //   X = model.players.get(0).X;
+     //   Y = model.players.get(0).Y;
         sprite = new ImageView();
+        sprite.setFocusTraversable(true);
         File file = new File("bomb.png");
         Image image = new Image(file.toURI().toString());
         sprite.setImage(image);

@@ -22,6 +22,7 @@ public class PlayerVO {
         X = Math.random()*500;
         Y = Math.random()*500;
         sprite = new ImageView();
+        sprite.setFocusTraversable(true);
         File file = new File("bomber.png");
         Image image = new Image(file.toURI().toString());
         sprite.setImage(image);
